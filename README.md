@@ -1,6 +1,7 @@
 # PokemonTcgDeckBuilder
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
+Install node in v20.12.0
 
 ## Development server
 
