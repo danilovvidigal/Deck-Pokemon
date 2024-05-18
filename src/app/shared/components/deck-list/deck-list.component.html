@@ -1,0 +1,23 @@
+<div class="bg-white shadow-lg rounded-lg p-8 max-w-full w-full min-h-screen flex flex-col items-center">
+  <h2 class="text-3xl font-bold mb-6">Lista de Baralhos</h2>
+  <div class="w-full flex justify-between mb-4">
+    <button (click)="goHome()" class="bg-gray-500 text-white py-1 px-4 rounded">Home</button>
+    <button (click)="goBack()" class="bg-gray-500 text-white py-1 px-4 rounded">Voltar</button>
+    <button (click)="createNewDeck()" class="bg-green-500 text-white py-1 px-4 rounded">Criar Novo Baralho</button>
+  </div>
+  <div class="w-full max-h-96 overflow-y-auto">
+    <ul class="w-full">
+      <li *ngFor="let deck of decks" class="mb-4 flex justify-between items-center border-b p-2">
+        <div class="flex items-center">
+          <img [src]="deck.cards[0]?.images?.small" alt="{{ deck.name }}" class="w-12 h-12 mr-4">
+          <span class="text-lg font-semibold">{{ deck.name }}</span>
+        </div>
+        <div class="flex space-x-2">
+          <button (click)="viewDeck(deck.name)" class="bg-blue-500 text-white py-1 px-2 rounded">Visualizar</button>
+          <button (click)="editDeck(deck.name)" class="bg-yellow-500 text-white py-1 px-2 rounded">Editar</button>
+          <button (click)="deleteDeck(deck.name)" class="bg-red-500 text-white py-1 px-2 rounded">Excluir</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

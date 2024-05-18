@@ -1,0 +1,37 @@
+<div class="bg-white shadow-lg rounded-lg p-8 max-w-full w-full min-h-screen flex flex-col items-center">
+  <button (click)="goBack()" class="bg-gray-500 text-white py-1 px-4 rounded mb-4">Voltar</button>
+  <h2 class="text-3xl font-bold mb-6">{{ isEditMode ? 'Editar Baralho' : 'Criar Novo Baralho' }}</h2>
+  <input [(ngModel)]="deckName" placeholder="Nome do baralho" class="mb-4 p-2 border rounded w-full" />
+  <input [(ngModel)]="cardInput" placeholder="Nome da carta" (keyup.enter)="searchCards()" class="mb-4 p-2 border rounded w-full" />
+  <button (click)="searchCards()" class="bg-red-600 text-white py-2 px-4 rounded shadow-lg mb-4">Pesquisar Cartas</button>
+  
+  <div class="flex w-full">
+    <div class="w-1/2 pr-2">
+      <h3 class="text-2xl font-bold mb-4">Cartas</h3>
+      <div class="max-h-96 overflow-y-auto bg-gray-100 p-4 rounded-lg shadow-inner">
+        <ul class="w-full">
+          <li *ngFor="let card of searchResults" class="mb-2 flex justify-between items-center border-b p-2">
+            {{ card.name }}
+            <button (click)="addCard(card)" class="bg-green-500 text-white py-1 px-2 rounded">Adicionar</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="w-1/2 pl-2">
+      <h3 class="text-2xl font-bold mb-4">Baralho</h3>
+      <div class="max-h-96 overflow-y-auto bg-gray-100 p-4 rounded-lg shadow-inner">
+        <ul class="w-full">
+          <li *ngFor="let card of cards" class="mb-2 flex justify-between items-center border-b p-2">
+            {{ card.name }}
+            <button (click)="removeCard(card)" class="bg-red-500 text-white py-1 px-2 rounded">Remover</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <button (click)="saveDeck()" class="mt-4 bg-red-600 text-white py-2 px-4 rounded shadow-lg">
+    {{ isEditMode ? 'Salvar Edição' : 'Salvar Baralho' }}
+  </button>
+</div>

@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+
+@use "igniteui-angular/theming" as *;
+@include core();
+@include typography($font-family: $material-typeface, $type-scale: $material-type-scale);
+@include theme($default-palette);
+@import 'minireset.css/minireset';
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@font-face {
+    font-family: 'Pokemon';
+    src: url('/assets/fonts/Pokemon.ttf') format('truetype');
+  }
+  
+  body {
+    font-family: 'Pokemon', sans-serif;
+  }
+
+  .toast-error {
+    background-color: #f44336 !important;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .toast-top-right {
+    position: absolute !important;
+    top: 16px !important;
+    right: 12px !important;
+    z-index: 1050 !important;  
+  }
+  
+  .toast-container {
+    padding: 0 !important;
+  }
+  
+  .toast {
+    min-height: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
